@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="186.0" prefWidth="645.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.audioplayer.MainController">
+   <children>
+      <ProgressBar id="songProgressBar" fx:id="songProgressBar" layoutX="14.0" layoutY="93.0" prefHeight="20.0" prefWidth="630.0" progress="0.0" />
+      <Button id="playButton" fx:id="playButton" layoutX="14.0" layoutY="124.0" mnemonicParsing="false" onAction="#playMedia" prefHeight="48.0" prefWidth="84.0" text="Play" />
+      <Button id="pauseButton" fx:id="pauseButton" layoutX="98.0" layoutY="124.0" mnemonicParsing="false" onAction="#pauseMedia" prefHeight="48.0" prefWidth="84.0" text="Pause" />
+      <Button id="resetButton" fx:id="resetButton" layoutX="182.0" layoutY="124.0" mnemonicParsing="false" onAction="#resetMedia" prefHeight="48.0" prefWidth="84.0" text="Reset" />
+      <Button id="previousButton" fx:id="previousButton" layoutX="266.0" layoutY="124.0" mnemonicParsing="false" onAction="#previousMedia" prefHeight="48.0" prefWidth="65.0" text="&lt;&lt;" />
+      <Button id="nextButton" fx:id="nextButton" layoutX="332.0" layoutY="124.0" mnemonicParsing="false" onAction="#nextMedia" prefHeight="48.0" prefWidth="65.0" text="&gt;&gt;" />
+      <ComboBox id="speedBox" fx:id="speedBox" layoutX="397.0" layoutY="124.0" onAction="#changeSpeed" prefHeight="48.0" prefWidth="102.0" promptText="SPEED" />
+      <Slider id="volumeSlider" fx:id="volumeSlider" layoutX="505.0" layoutY="136.0" prefHeight="24.0" prefWidth="148.0" value="50.0" />
+   
+                                     <Label id="songLabel" fx:id="songLabel" alignment="CENTER" layoutX="5.0" layoutY="26.0" prefHeight="40.0" prefWidth="640.0" text="MP3 Player">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
