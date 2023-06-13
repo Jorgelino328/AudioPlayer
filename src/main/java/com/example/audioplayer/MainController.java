@@ -58,7 +58,7 @@ public class MainController implements Initializable {
         if(files != null){
             for(File file : files){
                 songs.add(file);
-                System.out.println(file);
+                //System.out.println(file);
             }
         }
         media = new Media(songs.get(songNumber).toURI().toString());
@@ -167,7 +167,7 @@ public class MainController implements Initializable {
                 running = true;
                 double current = mediaPlayer.getCurrentTime().toSeconds();
                 double end = media.getDuration().toSeconds();
-                System.out.println(current/end);
+                //System.out.println(current/end);
                 songProgressBar.setProgress(current/end);
 
                 if(current/end == 1) {
