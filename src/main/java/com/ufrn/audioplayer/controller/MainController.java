@@ -1,4 +1,4 @@
-package com.example.audioplayer;
+package com.ufrn.audioplayer.controller;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -53,7 +53,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         songs = new ArrayList<File>();
-        directory = new File("music");
+        directory = new File("src/main/resources/com/ufrn/audioplayer/music");
         files = directory.listFiles();
         if(files != null){
             for(File file : files){

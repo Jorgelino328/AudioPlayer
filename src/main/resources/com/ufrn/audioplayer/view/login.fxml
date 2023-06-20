@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ufrn.audioplayer.controller.LoginController">
+   <center>
+      <AnchorPane prefHeight="407.0" prefWidth="328.0">
+         <children>
+            <Button id="submit-btn" fx:id="entrar_btn" layoutX="131.0" layoutY="260.0" mnemonicParsing="false" onAction="#entrar_btn_action" text="Entrar" />
+            <PasswordField id="password_input" fx:id="senha_input" layoutX="127.0" layoutY="203.0" onAction="#senha_input_action" promptText="Senha" />
+            <Label layoutX="131.0" layoutY="126.0" text="Login">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="63.0" layoutY="171.0" text="Usuario:">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="68.0" layoutY="208.0" text="Senha:">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usuario_input" layoutX="127.0" layoutY="166.0" onAction="#usuario_input_action" promptText="Usuário" />
+            <Hyperlink layoutX="16.0" layoutY="369.0" text="Ainda nao tem cadastro?" />
+         </children>
+      </AnchorPane>
+   </center>
+   <left>
+      <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #22c91c;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="68.0" layoutY="131.0" styleClass="title" stylesheets="@../css/login.css" text="Jorge's">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="195.0" styleClass="title" stylesheets="@../css/login.css" text="Audio Player">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>
