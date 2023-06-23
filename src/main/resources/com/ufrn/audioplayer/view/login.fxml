@@ -14,7 +14,7 @@
       <AnchorPane prefHeight="407.0" prefWidth="328.0">
          <children>
             <Button id="submit-btn" fx:id="entrar_btn" layoutX="131.0" layoutY="260.0" mnemonicParsing="false" onAction="#entrar_btn_action" text="Entrar" />
-            <PasswordField id="password_input" fx:id="senha_input" layoutX="127.0" layoutY="203.0" onAction="#senha_input_action" promptText="Senha" />
+            <PasswordField id="password_input" fx:id="senha_input" layoutX="127.0" layoutY="203.0" promptText="Senha" />
             <Label layoutX="131.0" layoutY="126.0" text="Login">
                <font>
                   <Font name="DejaVu Sans Bold" size="18.0" />
@@ -30,7 +30,7 @@
                   <Font name="DejaVu Sans Bold" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="usuario_input" layoutX="127.0" layoutY="166.0" onAction="#usuario_input_action" promptText="Usuário" />
+            <TextField fx:id="usuario_input" layoutX="127.0" layoutY="166.0" promptText="Usuário" />
             <Hyperlink layoutX="16.0" layoutY="369.0" text="Ainda nao tem cadastro?" />
          </children>
       </AnchorPane>

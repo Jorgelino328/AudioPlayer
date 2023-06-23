@@ -5,24 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="325fa364-05e6-4944-a969-286dc2e14d1e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/dao/DiretoriosDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/dao/PlaylistsDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/dao/UsuariosDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/model/Usuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/model/UsuarioVIP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/view/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music/Dream It - TrackTribe.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/music/Dream It - TrackTribe.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music/Oh Fire - Carmen María and Edu Espinal.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/music/Oh Fire - Carmen María and Edu Espinal.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music/Old World Saga - Hanu Dixit.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/music/Old World Saga - Hanu Dixit.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/audioplayer/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/audioplayer/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/audioplayer/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/view/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/view/login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +138,7 @@
       <workItem from="1686639777147" duration="10165000" />
       <workItem from="1686650918791" duration="94000" />
       <workItem from="1687272164486" duration="1487000" />
-      <workItem from="1687277189854" duration="12050000" />
+      <workItem from="1687277189854" duration="12694000" />
     </task>
     <servers />
   </component>
