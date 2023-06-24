@@ -1,5 +1,7 @@
 package com.ufrn.audioplayer.controller;
 
+import com.ufrn.audioplayer.dao.UsuariosDAO;
+import com.ufrn.audioplayer.model.Usuario;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -52,6 +54,7 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         songs = new ArrayList<File>();
         directory = new File("src/main/resources/com/ufrn/audioplayer/music");
         files = directory.listFiles();

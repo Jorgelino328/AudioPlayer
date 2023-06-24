@@ -4,6 +4,10 @@ public class Usuario {
     private String nome;
     private String senha;
 
+    public Usuario(String nome, String senha){
+
+    }
+
     public String getNome() {
         return nome;
     }

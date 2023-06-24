@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
 
-    private static UsuariosDAO uDao;
+    private static UsuariosDAO uDao = new UsuariosDAO();
 
     @FXML
     private TextField usuario_input;
@@ -28,19 +28,14 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 
     @FXML
     private Button entrar_btn;
     public void entrar_btn_action(ActionEvent e){
-
         if(uDao.validaUsuario(usuario_input.getText(), senha_input.getText())){
             System.out.println("LOGIN BEM SUCEDIDO");
         }
-
-
-
     }
 
 }
