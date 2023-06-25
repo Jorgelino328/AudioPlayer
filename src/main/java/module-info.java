@@ -6,6 +6,7 @@ module com.example.audioplayer {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
 
+
     opens com.ufrn.audioplayer to javafx.fxml;
     exports com.ufrn.audioplayer;
     exports com.ufrn.audioplayer.controller;

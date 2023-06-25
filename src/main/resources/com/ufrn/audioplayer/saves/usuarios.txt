@@ -1,1 +1,6 @@
-Joao,senha
+Joao, senha, false
+Maria, senha2, false
+Jamanta, 123, false
+Juca, 1234, false
+Teste1, 123, false
+VIP, 123, true

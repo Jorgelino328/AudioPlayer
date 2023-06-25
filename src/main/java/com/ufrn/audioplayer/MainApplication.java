@@ -15,7 +15,7 @@ public class MainApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 556, 407);
-        stage.setTitle("AudioPlayer");
+        stage.setTitle("AudioPlayer - Login");
         stage.setScene(scene);
         stage.show();
 
