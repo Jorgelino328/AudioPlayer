@@ -26,6 +26,10 @@ public class MusicasDAO {
         this.listaMusicas = listaMusicas;
     }
 
+    /**
+     * Lê o arquivo com as músicas
+     * @param file
+     */
     public void readFile(File file){
 
         try (InputStream inputStream = new FileInputStream(file);
@@ -46,6 +50,10 @@ public class MusicasDAO {
         }
     }
 
+    /**
+     * Salva as músicas num arquivo .txt
+     * @param musica
+     */
     public void saveFile(Musica musica){
         try {
             FileWriter writer = new FileWriter(file, true);

@@ -42,6 +42,11 @@ public class CadastroController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
+    /**
+     * Cadastra um novo usuário no sistema
+     * @param e
+     * @throws IOException
+     */
     public void cadastrar_btn_action(ActionEvent e) throws IOException {
         bdUsuarios = UsuariosDAO.getInstance();
         if(isVIP.isSelected()) {

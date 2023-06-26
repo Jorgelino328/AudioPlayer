@@ -1,13 +1,18 @@
 package com.ufrn.audioplayer.controller;
 
+import com.ufrn.audioplayer.MainApplication;
 import com.ufrn.audioplayer.dao.DiretoriosDAO;
 import com.ufrn.audioplayer.dao.MusicasDAO;
+import com.ufrn.audioplayer.dao.UsuariosDAO;
 import com.ufrn.audioplayer.model.Musica;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -21,6 +26,7 @@ import javafx.scene.Node;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
@@ -30,7 +36,7 @@ public class MainController implements Initializable {
 
     private DiretoriosDAO bdDiretorios;
     private MusicasDAO bdMusicas;
-
+    private UsuariosDAO bdUsuario;
     @FXML
     private Pane pane;
     @FXML
@@ -51,6 +57,9 @@ public class MainController implements Initializable {
     @FXML
     private TextFlow musicasList;
 
+    @FXML
+    private Label userLabel;
+
 
     private Media media;
     private MediaPlayer mediaPlayer;
@@ -64,8 +73,16 @@ public class MainController implements Initializable {
     private TimerTask task;
     boolean running;
 
+    /**
+     * Função Inicializadora do MainController, lê os arquivos de áudio armazenados necessários para rodar a aplicação
+     * @param url
+     * @param resourceBundle
+     *
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        bdUsuario = UsuariosDAO.getInstance();
+        userLabel.setText(bdUsuario.getUsuarioAtual().getNome());
         bdDiretorios = DiretoriosDAO.getInstance();
         bdMusicas = MusicasDAO.getInstance();
         for (int i=0;i<bdDiretorios.getListaDiretorios().size();i++) {
@@ -87,7 +104,8 @@ public class MainController implements Initializable {
                 hbox.getChildren().addAll(label,btn);
                 int finalI = i;
                 btn.setOnAction(event -> playMusica(bdMusicas.getListaMusicas().get(finalI)));
-                label.setPrefWidth(musicasList.getPrefWidth());
+                label.setPrefWidth(musicasList.getPrefWidth() -47);
+                label.centerShapeProperty();
                 musicasList.getChildren().add(hbox);
             }
             media = new Media(bdMusicas.getListaMusicas().get(songNumber).getFile().toURI().toString());
@@ -120,6 +138,10 @@ public class MainController implements Initializable {
         this.songNumber = songNumber;
     }
 
+    /**
+     * Função que toca uma música específica m
+     * @param m
+     */
     public void playMusica(Musica m) {
         pauseMedia();
 
@@ -134,6 +156,10 @@ public class MainController implements Initializable {
         playMedia();
     }
 
+    /**
+     * Salva um novo diretório e
+     * @param e
+     */
     public void novoDiretorio(ActionEvent e){
         final DirectoryChooser directoryChooser = new DirectoryChooser();
         File file = directoryChooser.showDialog((Stage)((Node) e.getSource()).getScene().getWindow());
@@ -142,6 +168,10 @@ public class MainController implements Initializable {
         bdDiretorios.saveFile(file);
     }
 
+    /**
+     * Salva um novo arquivo de áudio e
+     * @param e
+     */
     public void novoArquivo(ActionEvent e){
         final FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog((Stage)((Node) e.getSource()).getScene().getWindow());
@@ -150,20 +180,36 @@ public class MainController implements Initializable {
         bdMusicas.addMusica(m);
         bdMusicas.saveFile(m);
     }
+
+    /**
+     * Toca a música na fila atual
+     */
     public void playMedia(){
         beginTimer();
         changeSpeed(null);
         mediaPlayer.play();
     }
+
+    /**
+     * Pausa a música atual
+     */
     public void pauseMedia(){
         if(running)
             cancelTimer();
         mediaPlayer.pause();
     }
+
+    /**
+     * Reseta a música atual para o início da mesma
+     */
     public void resetMedia(){
         songProgressBar.setProgress(0);
         mediaPlayer.seek(Duration.seconds(0));
     }
+
+    /**
+     * Volta para a música anterior a atual na fila
+     */
     public void previousMedia(){
         if(songNumber > 0){
             songNumber--;
@@ -193,6 +239,10 @@ public class MainController implements Initializable {
             playMedia();
         }
     }
+
+    /**
+     * Avança para a próxima música da fila
+     */
     public void nextMedia(){
         if(songNumber < bdMusicas.getListaMusicas().size() - 1){
             songNumber++;
@@ -231,6 +281,9 @@ public class MainController implements Initializable {
         }
     }
 
+    /**
+     * Começa um timer para monitorar o tempo de duração da música
+     */
     public void beginTimer(){
         timer = new Timer();
         task = new TimerTask() {
@@ -239,7 +292,6 @@ public class MainController implements Initializable {
                 running = true;
                 double current = mediaPlayer.getCurrentTime().toSeconds();
                 double end = media.getDuration().toSeconds();
-                //System.out.println(current/end);
                 songProgressBar.setProgress(current/end);
 
                 if(current/end == 1) {
@@ -251,9 +303,25 @@ public class MainController implements Initializable {
         timer.scheduleAtFixedRate(task,0,1000);
     }
 
+    /**
+     * Cancela o timer
+     */
     public void cancelTimer(){
         running = false;
         timer.cancel();
     }
 
+    /**
+     * Sai da aplicação
+     * @param e
+     * @throws IOException
+     */
+    public void logout(ActionEvent e) throws IOException {
+        Parent tableViewParent = FXMLLoader.load(MainApplication.class.getResource("view/login.fxml"));
+        Scene tableViewScene = new Scene(tableViewParent);
+        Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        window.setTitle("AudioPlayer");
+        window.setScene(tableViewScene);
+        window.show();
+    }
 }

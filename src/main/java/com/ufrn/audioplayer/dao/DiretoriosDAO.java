@@ -24,6 +24,10 @@ public class DiretoriosDAO {
         this.listaDiretorios = listaDiretorios;
     }
 
+    /**
+     * Lê o arquivo que contém os diretórios salvos
+     * @param file
+     */
     public void readFile(File file){
 
         try (InputStream inputStream = new FileInputStream(file);
@@ -40,6 +44,10 @@ public class DiretoriosDAO {
         }
     }
 
+    /**
+     * Salva os diretórios num arquivo .txt
+     * @param dir
+     */
     public void saveFile(File dir){
         try {
             FileWriter writer = new FileWriter(file, true);

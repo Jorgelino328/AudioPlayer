@@ -21,16 +21,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class VIPController extends MainController implements Initializable {
@@ -54,6 +50,11 @@ public class VIPController extends MainController implements Initializable {
     private Playlist currentPlaylist;
     private int indexPlaylist = 0;
 
+    /**
+     * Funcão inicializadora do VIPController, além de repetir o que o initialize do MainController faz por meio de polimorfismo, também lê as playlists do usuário
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         super.initialize(url,resourceBundle);
@@ -68,17 +69,26 @@ public class VIPController extends MainController implements Initializable {
 
         for (int i = 0; i < bdPlaylist.getPlaylists().size();i++){
             selectPlaylist.getItems().add(bdPlaylist.getPlaylists().get(i).getId() + " - " + bdPlaylist.getPlaylists().get(i).getNome());
-            Label label = new Label(i+". " +bdPlaylist.getPlaylists().get(i).getNome()+"\n");
-            Button btn = new Button("Play");
-            HBox hbox = new HBox();
-            hbox.getChildren().addAll(label,btn);
-            int finalI = i;
-            btn.setOnAction(event -> playPlaylist(bdPlaylist.getPlaylists().get(finalI),indexPlaylist));
-            label.setPrefWidth(playlistsList.getPrefWidth());
-            playlistsList.getChildren().add(hbox);
+            if(bdPlaylist.getPlaylists().get(i).getUsr_id() == bdUsuario.getUsuarioAtual().getId() ){
+                Label label = new Label(i+". " +bdPlaylist.getPlaylists().get(i).getNome()+"\n");
+                Button btn = new Button("Play");
+                HBox hbox = new HBox();
+                hbox.getChildren().addAll(label,btn);
+                int finalI = i;
+                btn.setOnAction(event -> playPlaylist(bdPlaylist.getPlaylists().get(finalI),indexPlaylist));
+                label.setPrefWidth(playlistsList.getPrefWidth() - 47);
+                label.centerShapeProperty();
+                playlistsList.getChildren().add(hbox);
+            }
+
         }
 
     }
+
+    /**
+     * Adiciona uma nova playlist
+     * @param e
+     */
     public void addMusicaPlaylist(ActionEvent e){
         bdPlaylist = PlaylistsDAO.getInstance();
         ArrayList<Musica> musicas = new ArrayList<Musica>();
@@ -93,6 +103,12 @@ public class VIPController extends MainController implements Initializable {
         bdPlaylist.addMusica(playlist, m);
 
     }
+
+    /**
+     * Cadastra um novo usuário
+     * @param e
+     * @throws IOException
+     */
     public void cadastraUsuario(ActionEvent e) throws IOException {
         Parent tableViewParent  = FXMLLoader.load(MainApplication.class.getResource("view/cadastro.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
@@ -102,6 +118,10 @@ public class VIPController extends MainController implements Initializable {
         window.show();
     }
 
+    /**
+     * Cadastra uma nova playlist
+     * @param e
+     */
     public void novaPlaylist(ActionEvent e){
         bdPlaylist = PlaylistsDAO.getInstance();
         bdUsuario = UsuariosDAO.getInstance();
@@ -119,6 +139,10 @@ public class VIPController extends MainController implements Initializable {
         playlistsList.getChildren().add(hbox);
     }
 
+    /**
+     * Reseta a playlist caso acionada
+     * @param m
+     */
     @Override
     public void playMusica(Musica m){
         if(currentPlaylist != null){
@@ -126,6 +150,12 @@ public class VIPController extends MainController implements Initializable {
         }
         super.playMusica(m);
     }
+
+    /**
+     * Toca apenas as músicas referentes à playlist ativa
+     * @param p
+     * @param indexPlaylist
+     */
     public void playPlaylist(Playlist p,int indexPlaylist){
         if(currentPlaylist != null){
             playMusica(p.getMusicas_playlist().get(indexPlaylist));
@@ -135,6 +165,9 @@ public class VIPController extends MainController implements Initializable {
         }
     }
 
+    /**
+     * Volta para a música anterior a atual na fila da playlist
+     */
     @Override
     public void previousMedia(){
         if(currentPlaylist != null) {
@@ -149,6 +182,10 @@ public class VIPController extends MainController implements Initializable {
             super.previousMedia();
         }
     }
+
+    /**
+     * Avança até a próxima música na fila da playlist atual
+     */
     @Override
     public void nextMedia() {
         if(currentPlaylist != null) {

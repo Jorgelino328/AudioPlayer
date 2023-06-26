@@ -4,6 +4,9 @@ import java.io.*;
 import java.util.ArrayList;
 import com.ufrn.audioplayer.model.Usuario;
 import com.ufrn.audioplayer.model.UsuarioVIP;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class UsuariosDAO {
     ArrayList<Usuario> listaUsuarios;
@@ -28,7 +31,10 @@ public class UsuariosDAO {
         this.usuarioAtual = usuarioAtual;
     }
 
-
+    /**
+     * Lẽ o arquivo onde os dados dos usuários estão salvos
+     * @param file
+     */
     public void readFile(File file){
 
         try (InputStream inputStream = new FileInputStream(file);
@@ -37,16 +43,16 @@ public class UsuariosDAO {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] userData = line.split(", ");
-                String name = userData[0];
-                String senha = userData[1];
-                boolean isVIP = Boolean.parseBoolean(userData[2]);
+                int id = Integer.parseInt(userData[0]);
+                String name = userData[1];
+                String senha = userData[2];
+                boolean isVIP = Boolean.parseBoolean(userData[3]);
                 Usuario new_usr;
                 if(isVIP){
                     new_usr = new UsuarioVIP(name, senha);
                 }else{
                     new_usr = new Usuario(name, senha);
                 }
-                //System.out.println("Name: "+name+" Senha: "+senha+" VIP: "+isVIP);
                 addUsuario(new_usr);
             }
 
@@ -55,11 +61,18 @@ public class UsuariosDAO {
         }
     }
 
+    /**
+     * Salva os dados dos usuários em um arquivo .txt
+     * @param usuario
+     */
     public void saveFile(Usuario usuario){
         try {
             FileWriter writer = new FileWriter(file, true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
-            bufferedWriter.write(usuario.getNome()+", "+usuario.getSenha()+", "+(usuario instanceof UsuarioVIP));
+            if (file.length() > 0) {
+                bufferedWriter.newLine();
+            }
+            bufferedWriter.write(usuario.getId()+", "+usuario.getNome()+", "+hashPassword(usuario.getSenha())+", "+(usuario instanceof UsuarioVIP));
             bufferedWriter.close();
         } catch (IOException e) {
             System.err.println("Erro lendo o arquivo: " + e.getMessage());
@@ -94,14 +107,48 @@ public class UsuariosDAO {
         return output;
     }
 
+    /**
+     * Valida o usuário tentando logar no sistema
+     * @param usuario
+     * @param senha
+     * @return
+     */
     public boolean validaUsuario(String usuario, String senha){
 
         for(int i=0; i<listaUsuarios.size();i++){
-            if(listaUsuarios.get(i).getNome().equals(usuario) && listaUsuarios.get(i).getSenha().equals(senha)){
+            if(listaUsuarios.get(i).getNome().equals(usuario) && listaUsuarios.get(i).getSenha().equals(hashPassword(senha))){
                 usuarioAtual = listaUsuarios.get(i);
                 return true;
             }
         }
         return false;
     }
+
+    /**
+     * Utiliza do hash SHA-256 pra criptografar as senhas
+     * @param password
+     * @return
+     */
+    public static String hashPassword(String password) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hashBytes = digest.digest(password.getBytes(StandardCharsets.UTF_8));
+
+            StringBuilder hexString = new StringBuilder();
+            for (byte hashByte : hashBytes) {
+                String hex = Integer.toHexString(0xff & hashByte);
+                if (hex.length() == 1) {
+                    hexString.append('0');
+                }
+                hexString.append(hex);
+            }
+
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            // Handle the exception
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }

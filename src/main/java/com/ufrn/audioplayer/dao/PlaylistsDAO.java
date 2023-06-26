@@ -40,7 +40,10 @@ public class PlaylistsDAO {
         this.playlists = playlists;
     }
 
-
+    /**
+     * Lê os arquivos com as playlists
+     * @param file
+     */
     public void readFile(File file){
 
         try (InputStream inputStream = new FileInputStream(file);
@@ -76,6 +79,10 @@ public class PlaylistsDAO {
         playlists.remove(list);
     }
 
+    /**
+     * Salva as playlists em arquivos .txt
+     * @param playlist
+     */
     public void saveFile(Playlist playlist){
         System.out.println("Nome: "+playlist.getNome());
         try {
@@ -92,6 +99,11 @@ public class PlaylistsDAO {
         }
     }
 
+    /**
+     * Adiciona uma música em uma playlist já existente
+     * @param p
+     * @param m
+     */
     public void addMusica(Playlist p,Musica m){
         try {
             FileWriter writer = new FileWriter(dir+"/playlist_"+p.getId(),true);

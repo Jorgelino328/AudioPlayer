@@ -39,6 +39,11 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
+    /**
+     * Valida o usuário e o direciona para sua respectiva tela
+     * @param e
+     * @throws IOException
+     */
     public void entrar_btn_action(ActionEvent e) throws IOException {
         bdUsuarios = UsuariosDAO.getInstance();
         if(bdUsuarios.validaUsuario(usuario_input.getText(), senha_input.getText())){
