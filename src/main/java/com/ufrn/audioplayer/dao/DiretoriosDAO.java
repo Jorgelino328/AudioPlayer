@@ -44,7 +44,6 @@ public class DiretoriosDAO {
         try {
             FileWriter writer = new FileWriter(file, true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
-            bufferedWriter.newLine();
             bufferedWriter.write(dir.getPath());
             bufferedWriter.close();
         } catch (IOException e) {

@@ -8,9 +8,11 @@ public class Playlist {
     private int id;
     private int usr_id;
     private String nome;
-    private ArrayList<Integer> musicas_playlist;
+    private ArrayList<Musica> musicas_playlist;
 
-    public Playlist(int usr_id, String nome, ArrayList<Integer> musicas){
+    public Playlist(int usr_id, String nome, ArrayList<Musica> musicas){
+        this.usr_id = usr_id;
+        this.nome = nome;
         musicas_playlist = musicas;
     }
 
@@ -38,11 +40,11 @@ public class Playlist {
         this.nome = nome;
     }
 
-    public ArrayList<Integer> getMusicas_playlist() {
+    public ArrayList<Musica> getMusicas_playlist() {
         return musicas_playlist;
     }
 
-    public void setMusicas_playlist(ArrayList<Integer> musicas_playlist) {
+    public void setMusicas_playlist(ArrayList<Musica> musicas_playlist) {
         this.musicas_playlist = musicas_playlist;
     }
 

@@ -32,11 +32,12 @@ public class MusicasDAO {
              BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
 
             String line;
-            while ((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null && !line.isEmpty()) {
                 String mus_Data[] = line.split(", ");
                 int mus_id = Integer.parseInt(mus_Data[0]);
                 File mus_file = new File(mus_Data[1]);
                 Musica new_mus = new Musica(mus_file);
+                new_mus.setId(mus_id);
                 addMusica(new_mus);
             }
 
@@ -49,8 +50,7 @@ public class MusicasDAO {
         try {
             FileWriter writer = new FileWriter(file, true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
-            bufferedWriter.newLine();
-            bufferedWriter.write(musica.getId()+", "+musica.getFile().getPath());
+            bufferedWriter.write((listaMusicas.size()+1) +", "+musica.getFile().getPath());
             bufferedWriter.close();
         } catch (IOException e) {
             System.err.println("Erro lendo o arquivo: " + e.getMessage());
@@ -66,7 +66,6 @@ public class MusicasDAO {
 
     public void addMusica(Musica musica){
         listaMusicas.add(musica);
-        musica.setId(listaMusicas.size());
     }
 
     public void removeMusica(Musica Musica){

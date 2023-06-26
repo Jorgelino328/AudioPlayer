@@ -9,9 +9,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.text.TextFlow;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -46,6 +48,10 @@ public class MainController implements Initializable {
     @FXML
     private ProgressBar songProgressBar;
 
+    @FXML
+    private TextFlow musicasList;
+
+
     private Media media;
     private MediaPlayer mediaPlayer;
     private File directory;
@@ -56,7 +62,7 @@ public class MainController implements Initializable {
 
     private Timer timer;
     private TimerTask task;
-    private boolean running;
+    boolean running;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -74,6 +80,16 @@ public class MainController implements Initializable {
         }
 
         try {
+            for (int i = 0; i < bdMusicas.getListaMusicas().size();i++){
+                Label label = new Label(i+". " +bdMusicas.getListaMusicas().get(i).getFile().getName()+"\n");
+                Button btn = new Button("Play");
+                HBox hbox = new HBox();
+                hbox.getChildren().addAll(label,btn);
+                int finalI = i;
+                btn.setOnAction(event -> playMusica(bdMusicas.getListaMusicas().get(finalI)));
+                label.setPrefWidth(musicasList.getPrefWidth());
+                musicasList.getChildren().add(hbox);
+            }
             media = new Media(bdMusicas.getListaMusicas().get(songNumber).getFile().toURI().toString());
             mediaPlayer = new MediaPlayer(media);
 
@@ -94,6 +110,28 @@ public class MainController implements Initializable {
         }catch (Exception e){
             System.out.println("Erro ao tentar abrir pasta de músicas: " + e);
         }
+    }
+
+    public int getSongNumber() {
+        return songNumber;
+    }
+
+    public void setSongNumber(int songNumber) {
+        this.songNumber = songNumber;
+    }
+
+    public void playMusica(Musica m) {
+        pauseMedia();
+
+        if(running)
+            cancelTimer();
+
+        media = new Media(m.getFile().toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+
+        songLabel.setText(m.getFile().getName());
+
+        playMedia();
     }
 
     public void novoDiretorio(ActionEvent e){
@@ -118,7 +156,8 @@ public class MainController implements Initializable {
         mediaPlayer.play();
     }
     public void pauseMedia(){
-        cancelTimer();
+        if(running)
+            cancelTimer();
         mediaPlayer.pause();
     }
     public void resetMedia(){
@@ -216,4 +255,5 @@ public class MainController implements Initializable {
         running = false;
         timer.cancel();
     }
+
 }

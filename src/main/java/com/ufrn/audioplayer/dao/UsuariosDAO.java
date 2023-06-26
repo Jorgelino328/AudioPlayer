@@ -59,7 +59,6 @@ public class UsuariosDAO {
         try {
             FileWriter writer = new FileWriter(file, true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
-            bufferedWriter.newLine();
             bufferedWriter.write(usuario.getNome()+", "+usuario.getSenha()+", "+(usuario instanceof UsuarioVIP));
             bufferedWriter.close();
         } catch (IOException e) {

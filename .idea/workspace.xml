@@ -5,32 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="325fa364-05e6-4944-a969-286dc2e14d1e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/controller/CadastroController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/controller/VIPController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/dao/MusicasDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/model/Musica.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/model/Playlist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/saves/diretorios.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/saves/musicas.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/view/cadastro.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/view/vip.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/controller/VIPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/controller/VIPController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/dao/DiretoriosDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/dao/DiretoriosDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/dao/MusicasDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/dao/MusicasDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/dao/PlaylistsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/dao/PlaylistsDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/dao/UsuariosDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/dao/UsuariosDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/model/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/model/UsuarioVIP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/model/UsuarioVIP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/music/Dream It - TrackTribe.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/music/Oh Fire - Carmen María and Edu Espinal.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/music/Old World Saga - Hanu Dixit.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/saves/usuarios.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/saves/usuarios.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/view/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/model/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/model/Playlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/saves/playlists/playlist_1" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/view/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/view/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/view/vip.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ufrn/audioplayer/view/vip.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +29,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -171,7 +156,7 @@
       <workItem from="1687277189854" duration="12694000" />
       <workItem from="1687638331427" duration="1289000" />
       <workItem from="1687667418290" duration="19023000" />
-      <workItem from="1687698698665" duration="17902000" />
+      <workItem from="1687698698665" duration="46724000" />
     </task>
     <servers />
   </component>
@@ -181,11 +166,47 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
-          <option name="timeStamp" value="9" />
-        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/controller/MainController.java</url>
+          <line>197</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/controller/VIPController.java</url>
+          <line>139</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/controller/VIPController.java</url>
+          <line>153</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/controller/MainController.java</url>
+          <line>126</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/controller/MainController.java</url>
+          <line>125</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/controller/MainController.java</url>
+          <line>128</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ufrn/audioplayer/controller/MainController.java</url>
+          <line>123</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/AudioPlayer$com_ufrn_audioplayer_MainApplication.ic" NAME="com.ufrn.audioplayer.MainApplication Coverage Results" MODIFIED="1687752151404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.ufrn.audioplayer.controller.*</FILTER>
+    </SUITE>
   </component>
 </project>
